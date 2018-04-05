@@ -16,6 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".REGISTROUSUARIO"
+            android:label="@string/title_activity_registrousuario"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Perfil"
+            android:label="@string/title_activity_perfil"></activity>
     </application>
 
 </manifest>
