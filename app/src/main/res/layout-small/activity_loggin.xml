@@ -14,7 +14,7 @@
         android:layout_alignLeft="@+id/imageIngresar"
         android:layout_alignStart="@+id/imageIngresar"
         android:layout_below="@+id/imageVer"
-        android:contentDescription="@string/todo"
+
         app:srcCompat="@drawable/logocecy1" />
 
     <ImageView
