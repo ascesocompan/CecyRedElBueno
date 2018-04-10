@@ -2,6 +2,7 @@ package com.cecyred.ww.cecyred;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +16,7 @@ import static android.view.ViewAnimationUtils.createCircularReveal;
 
 public class LogginActivity extends AppCompatActivity {
     private TextView textviewusuario,textviewpassword;
-    private ImageView cr;
+    private ImageView cr,imagenregistro;
     private  static final long DURACION_REVELAR=1500;
     private  static  final long DURACION_QUITAR=800;
     public LogginActivity() {
@@ -56,5 +57,10 @@ public class LogginActivity extends AppCompatActivity {
                 cr.setVisibility(View.INVISIBLE);
             } });
         animator2.start();
+    }
+
+    public void CambioRegistro(View view) {
+        Intent intent= new Intent (LogginActivity.this, REGISTROUSUARIO.class);
+        startActivity(intent);
     }
 }

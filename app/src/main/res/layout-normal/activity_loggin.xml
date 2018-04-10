@@ -32,7 +32,8 @@
         android:layout_height="40dp"
         android:layout_below="@+id/CR"
         android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/registrar1" />
+        app:srcCompat="@drawable/registrar1"
+        android:onClick="CambioRegistro"/>
 
     <ImageView
         android:id="@+id/imageVer"
