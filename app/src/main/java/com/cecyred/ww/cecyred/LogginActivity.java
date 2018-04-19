@@ -21,7 +21,7 @@ public class LogginActivity extends AppCompatActivity {
     private  static  final long DURACION_QUITAR=800;
     public LogginActivity() {
     }
-
+    
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +61,10 @@ public class LogginActivity extends AppCompatActivity {
 
     public void CambioRegistro(View view) {
         Intent intent= new Intent (LogginActivity.this, REGISTROUSUARIO.class);
+        startActivity(intent);
+    }
+    public void CambioSolover(View view) {
+        Intent intent= new Intent (LogginActivity.this, Perfil.class);
         startActivity(intent);
     }
 }

@@ -13,6 +13,11 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_registrousuario" />
+    <include
+        layout="@layout/content_registrousuario"
+        android:layout_width="315dp"
+        android:layout_height="352dp"
+        tools:layout_editor_absoluteX="99dp"
+        tools:layout_editor_absoluteY="77dp" />
 
 </android.support.design.widget.CoordinatorLayout>

@@ -41,7 +41,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/solover1" />
+        app:srcCompat="@drawable/solover1"
+        android:onClick="CambioSolover"/>
 
     <EditText
         android:id="@+id/Usuario"

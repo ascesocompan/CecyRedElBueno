@@ -22,7 +22,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Perfil"
-            android:label="@string/title_activity_perfil"></activity>
+            android:label="@string/title_activity_perfil" />
     </application>
 
 </manifest>

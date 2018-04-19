@@ -45,7 +45,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="31dp"
-        app:srcCompat="@drawable/solover1" />
+        app:srcCompat="@drawable/solover1"
+        android:onClick="CambioSolover"/>
 
     <EditText
         android:id="@+id/Usuario"
@@ -58,6 +59,15 @@
         android:inputType="textPersonName"
         android:text="Introduzca su usario"
         android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/CR"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="visible"
+        app:srcCompat="@drawable/logocr1" />
 
     <EditText
         android:id="@+id/Contraseña"
