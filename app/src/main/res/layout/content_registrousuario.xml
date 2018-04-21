@@ -15,7 +15,7 @@
         android:layout_height="55dp"
         android:layout_marginTop="76dp"
         android:ems="10"
-        android:hint="Nombre:"
+        android:hint="Nombre Usuario:"
         android:inputType="textPersonName"
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         android:textSize="18sp"
