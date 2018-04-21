@@ -41,6 +41,7 @@ EditText Et_nom,Et_pass,Et_bol;
                     jsonResponse = new JSONObject(response);
                     boolean succes=jsonResponse.getBoolean("success");
                     if(succes){
+                        Toast.makeText(getApplicationContext(), "Registrado con exito", Toast.LENGTH_LONG).show();
                         Intent intent=new Intent(REGISTROUSUARIO.this,LogginActivity.class);
                         REGISTROUSUARIO.this.startActivity(intent);
                     }else{

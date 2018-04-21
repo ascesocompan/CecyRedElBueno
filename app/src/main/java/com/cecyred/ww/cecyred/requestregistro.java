@@ -16,9 +16,9 @@ public class requestregistro extends StringRequest {
     public requestregistro(String usuario, String contrasena, String boleta, Response.Listener<String> listener) {
         super(Method.POST,REGISTER_REQUEST_URL, listener, null);
         params=new HashMap<>();
-        params.put("usuario",usuario);
+        params.put("Boleta", boleta);
+        params.put("NomUsuario", usuario);
         params.put("contrasena", contrasena);
-        params.put("boleta", boleta);
 
     }
 
