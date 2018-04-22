@@ -13,7 +13,7 @@ import java.util.Map;
 public class requestregistro extends StringRequest {
     private static final String REGISTER_REQUEST_URL="http://cecyred.com.mx/registro.php";
     private Map<String,String> params;
-    public requestregistro(String usuario, String contrasena, String boleta, Response.Listener<String> listener) {
+    public requestregistro(String boleta, String usuario, String contrasena, Response.Listener<String> listener) {
         super(Method.POST,REGISTER_REQUEST_URL, listener, null);
         params=new HashMap<>();
         params.put("Boleta", boleta);

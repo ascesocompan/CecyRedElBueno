@@ -36,9 +36,9 @@ EditText Et_nom,Et_pass,Et_bol;
         Response.Listener<String> respolistener= new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                JSONObject jsonResponse= null;
+                // jsonResponse= null;
                 try {
-                    jsonResponse = new JSONObject(response);
+                   JSONObject jsonResponse = new JSONObject(response);
                     boolean succes=jsonResponse.getBoolean("success");
                     if(succes){
                         Toast.makeText(getApplicationContext(), "Registrado con exito", Toast.LENGTH_LONG).show();
@@ -55,7 +55,7 @@ EditText Et_nom,Et_pass,Et_bol;
 
             }
         };
-        requestregistro requestreg = new requestregistro(usuario,contrasena,boleta,respolistener);
+        requestregistro requestreg = new requestregistro(boleta,usuario,contrasena,respolistener);
         RequestQueue queue= Volley.newRequestQueue(REGISTROUSUARIO.this);
         queue.add(requestreg);
 
