@@ -29,36 +29,40 @@ EditText Et_nom,Et_pass,Et_bol;
        Et_pass=(EditText)findViewById(R.id.TXT_CONTRA);
        Et_bol=(EditText)findViewById(R.id.TXT_BOLETA);
     }
-    public void registro(View v){
-        String usuario=Et_nom.getText().toString();
-        String contrasena=Et_pass.getText().toString();
-        String boleta=Et_bol.getText().toString();
-        Response.Listener<String> respolistener= new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                // jsonResponse= null;
-                try {
-                   JSONObject jsonResponse = new JSONObject(response);
-                    boolean succes=jsonResponse.getBoolean("success");
-                    if(succes){
-                        Toast.makeText(getApplicationContext(), "Registrado con exito", Toast.LENGTH_LONG).show();
-                        Intent intent=new Intent(REGISTROUSUARIO.this,LogginActivity.class);
-                        REGISTROUSUARIO.this.startActivity(intent);
-                    }else{
+    public void registro(View v) {
+        String usuario = Et_nom.getText().toString();
+        String contrasena = Et_pass.getText().toString();
+        String boleta = Et_bol.getText().toString();
+        if (usuario.isEmpty() && contrasena.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "Ingresa el usuario y la contraseña", Toast.LENGTH_SHORT).show();
+        }else {
+            Response.Listener<String> respolistener = new Response.Listener<String>() {
 
-                        Toast.makeText(getApplicationContext(), "Ocurrio un error en el registro", Toast.LENGTH_LONG).show();
+                @Override
+                public void onResponse(String response) {
+                    // jsonResponse= null;
+                    try {
+                        JSONObject jsonResponse = new JSONObject(response);
+                        boolean succes = jsonResponse.getBoolean("success");
+                        if (succes) {
+                            Toast.makeText(getApplicationContext(), "Registrado con exito", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(REGISTROUSUARIO.this, LogginActivity.class);
+                            REGISTROUSUARIO.this.startActivity(intent);
+                        } else {
+
+                            Toast.makeText(getApplicationContext(), "Ocurrio un error en el registro", Toast.LENGTH_LONG).show();
+                        }
+                    } catch (JSONException e) {
+                        //e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "" + e.toString(), Toast.LENGTH_LONG).show();
                     }
-                } catch (JSONException e) {
-                   //e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), ""+e.toString(), Toast.LENGTH_LONG).show();
+
                 }
-
-            }
-        };
-        requestregistro requestreg = new requestregistro(boleta,usuario,contrasena,respolistener);
-        RequestQueue queue= Volley.newRequestQueue(REGISTROUSUARIO.this);
-        queue.add(requestreg);
-
+            };
+            requestregistro requestreg = new requestregistro(boleta, usuario, contrasena, respolistener);
+            RequestQueue queue = Volley.newRequestQueue(REGISTROUSUARIO.this);
+            queue.add(requestreg);
+        }
     }
 
 }

@@ -19,7 +19,6 @@ public class requestregistro extends StringRequest {
         params.put("Boleta", boleta);
         params.put("NomUsuario", usuario);
         params.put("contrasena", contrasena);
-
     }
 
     /*public requestregistro(String usuario, String contrasena, String boleta, Listener<String> respolistener) {
