@@ -30,6 +30,8 @@ public class LogginActivity extends AppCompatActivity {
     private  static final long DURACION_REVELAR=1500;
     private  static  final long DURACION_QUITAR=800;
     private EditText et_usuario, et_contra;
+    public static String nombredeusuario, numeroboleta;
+
     public LogginActivity() {
     }
     
@@ -85,10 +87,14 @@ public class LogginActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean succes = jsonResponse.getBoolean("success");
+
+
                             if (succes) {
                                 Toast.makeText(getApplicationContext(), "Bienvenido", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(LogginActivity.this, Perfil.class);
                                 LogginActivity.this.startActivity(intent);
+                                nombredeusuario=jsonResponse.getString("NomUsuario");
+                                numeroboleta=jsonResponse.getString("Boleta");
                             } else {
 
                                 Toast.makeText(getApplicationContext(), "Usuario y/o contraseña incorrectos", Toast.LENGTH_LONG).show();

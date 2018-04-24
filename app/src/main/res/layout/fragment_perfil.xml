@@ -12,25 +12,27 @@
         app:srcCompat="@drawable/logocr1" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textvinom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/imageView6"
         android:layout_alignStart="@+id/imageView6"
         android:layout_below="@+id/imageView6"
-        android:layout_marginLeft="38dp"
-        android:layout_marginStart="38dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="49dp"
         android:text="Nombre:"
-        android:textSize="30dp"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textvibol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_alignStart="@+id/textView3"
-        android:layout_below="@+id/textView3"
-        android:layout_marginTop="47dp"
+        android:layout_alignLeft="@+id/textvinom"
+        android:layout_alignStart="@+id/textvinom"
+        android:layout_below="@+id/textvinom"
+        android:layout_marginTop="35dp"
         android:text="Boleta:"
-        android:textSize="30dp" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+
 </RelativeLayout>
