@@ -73,8 +73,8 @@ public class LogginActivity extends AppCompatActivity {
             ban=ban+1;
             Mostrar();
         }else{
-            String usuario = et_usuario.getText().toString();
-            String contrasena=et_contra.getText().toString();
+            String usuario = et_usuario.getText().toString().trim();
+            String contrasena=et_contra.getText().toString().trim();
             if (usuario.isEmpty() || contrasena.isEmpty()) {
                 Toast.makeText(getApplicationContext(), "Ingresa el usuario y la contraseña", Toast.LENGTH_SHORT).show();
             }else {
