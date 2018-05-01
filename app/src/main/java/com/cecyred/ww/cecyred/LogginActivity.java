@@ -2,6 +2,7 @@ package com.cecyred.ww.cecyred;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -9,8 +10,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewAnimationUtils;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +34,8 @@ public class LogginActivity extends AppCompatActivity {
     private  static  final long DURACION_QUITAR=800;
     private EditText et_usuario, et_contra;
     public static String nombredeusuario, numeroboleta;
+    private ProgressBar progresbar;
+
 
     public LogginActivity() {
     }
@@ -42,6 +47,8 @@ public class LogginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_loggin);
         et_usuario=(EditText)findViewById(R.id.Usuario);
         et_contra=(EditText)findViewById(R.id.Contraseña);
+        progresbar=(ProgressBar)findViewById(R.id.progressBar);
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -67,6 +74,7 @@ public class LogginActivity extends AppCompatActivity {
             } });
         animator2.start();
     }
+
     int ban=1;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void ingreso(View v){
@@ -80,23 +88,25 @@ public class LogginActivity extends AppCompatActivity {
             if (usuario.isEmpty() || contrasena.isEmpty()) {
                 Toast.makeText(getApplicationContext(), "Ingresa el usuario y la contraseña", Toast.LENGTH_SHORT).show();
             }else {
+                progresbar.setVisibility(View.VISIBLE);
                 Response.Listener<String> respolistener = new Response.Listener<String>(){
 
                     @Override
                     public void onResponse(String response) {
+
                         try {
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean succes = jsonResponse.getBoolean("success");
 
-
                             if (succes) {
+                                progresbar.setVisibility(View.INVISIBLE);
                                 Toast.makeText(getApplicationContext(), "Bienvenido", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(LogginActivity.this, Perfil.class);
                                 LogginActivity.this.startActivity(intent);
                                 nombredeusuario=jsonResponse.getString("NomUsuario");
                                 numeroboleta=jsonResponse.getString("Boleta");
                             } else {
-
+                                progresbar.setVisibility(View.INVISIBLE);
                                 Toast.makeText(getApplicationContext(), "Usuario y/o contraseña incorrectos", Toast.LENGTH_LONG).show();
                             }
                         } catch (JSONException e) {

@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -20,7 +21,7 @@ import org.json.JSONObject;
 
 public class REGISTROUSUARIO extends AppCompatActivity {
 EditText Et_nom,Et_pass,Et_bol;
-
+    private ProgressBar progresbar2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +29,7 @@ EditText Et_nom,Et_pass,Et_bol;
        Et_nom=(EditText)findViewById(R.id.TXT_NOMBRE);
        Et_pass=(EditText)findViewById(R.id.TXT_CONTRA);
        Et_bol=(EditText)findViewById(R.id.TXT_BOLETA);
+        progresbar2=(ProgressBar)findViewById(R.id.progressBar2);
     }
     public void registro(View v) {
         String usuario = Et_nom.getText().toString();
@@ -36,22 +38,24 @@ EditText Et_nom,Et_pass,Et_bol;
         if (usuario.isEmpty() || contrasena.isEmpty()) {
             Toast.makeText(getApplicationContext(), "Ingresa el usuario y la contraseña", Toast.LENGTH_SHORT).show();
         }else {
+            progresbar2.setVisibility(View.VISIBLE);
             Response.Listener<String> respolistener = new Response.Listener<String>() {
 
                 @Override
                 public void onResponse(String response) {
+
                     // jsonResponse= null;
                   //  comprobarusuario();
                     try {
                         JSONObject jsonResponse = new JSONObject(response);
                         boolean succes = jsonResponse.getBoolean("success");
                         if (succes) {
-
+                            progresbar2.setVisibility(View.INVISIBLE);
                             Toast.makeText(getApplicationContext(), "Registrado con exito", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(REGISTROUSUARIO.this, LogginActivity.class);
                             REGISTROUSUARIO.this.startActivity(intent);
                         } else {
-
+                            progresbar2.setVisibility(View.INVISIBLE);
                             Toast.makeText(getApplicationContext(), "Ocurrio un error en el registro", Toast.LENGTH_LONG).show();
                         }
                     } catch (JSONException e) {
